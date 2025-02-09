@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Footer from "../components/Footer.astro";
 ---
 <!doctype html>
 <html lang="en">
@@ -10,7 +11,8 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>Bradley Taylor</title>
 	</head>
-	<body>
-		<slot />
-	</body>
+	<body class="flex justify-center antialiased pt-16 xl:pt-24 px-6 bg-neutral-50 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300">
+    <slot />
+    <!-- <Footer /> -->
+  </body>
 </html>

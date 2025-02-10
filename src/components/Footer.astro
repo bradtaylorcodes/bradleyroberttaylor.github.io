@@ -1,10 +1,14 @@
+---
+const linkStyles = 'text-medium text-neutral-400 hover:text-neutral-600 dark:text-neutral-500 dark:hover:text-inherit transition-colors';
+---
+
 <footer>
   <nav>
     <ul class="flex gap-6">
-      <li><a href="mailto:taylorbradleyr@gmail.com">email</a></li>
-      <li><a href="#">resume</a></li>
-      <li><a href="https://www.linkedin.com/in/bradleyroberttaylor/">linkedin</a></li>
-      <li><a href="https://github.com/BradleyRobertTaylor">github</a></li>
+      <li><a class={linkStyles} target="_blank" href="mailto:taylorbradleyr@gmail.com">email</a></li>
+      <li><a class={linkStyles} target="_blank" href="#">resume</a></li>
+      <li><a class={linkStyles} target="_blank" href="https://www.linkedin.com/in/bradleyroberttaylor/">linkedin</a></li>
+      <li><a class={linkStyles} target="_blank" href="https://github.com/BradleyRobertTaylor">github</a></li>
     </ul>
   </nav>
 </footer>

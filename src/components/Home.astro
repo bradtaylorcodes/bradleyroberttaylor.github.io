@@ -1,23 +1,42 @@
 ---
-const linkStyles = 'underline underline-offset-4 decoration-1 decoration-neutral-300 hover:decoration-neutral-500 hover:dark:decoration-neutral-400 dark:decoration-neutral-500 transition-colors';
+const linkStyles = 'underline underline-offset-4 decoration-1 decoration-neutral-300 dark:hover:text-neutral-200 hover:text-neutral-600 dark:decoration-neutral-500 transition-colors';
+const projects = [
+  {
+    title: 'SmoothSail',
+    description: 'An open source feature flag management.',
+    link: 'https://smooth-sail.github.io/',
+  },
+  {
+    title: 'ForRequests',
+    description: 'A RequestBin like application for debugging webhooks and HTTP requests.',
+    link: 'https://github.com/BradleyRobertTaylor/for-requests',
+  },
+];
 ---
 
-<main class="max-w-2xl flex flex-col gap-12">
+<main class="max-w-2xl flex flex-col gap-24">
   <div class="flex flex-col gap-6">
-    <h1>
-      <a class="font-semibold" href="/">Bradley Taylor</a>
+    <h1 class="flex flex-col font-semibold">
+      <a class="-mb-1" href="/">Bradley Taylor</a>
+      <span class="text-neutral-500 dark:text-neutral-400">Software Engineer</span>
     </h1>
-    <p>
-      Software engineer based in Las Vegas, NV. Currently I work at
-      <a class={linkStyles} href="https://www.qlik.com/us/products/qlik-automl">Qlik</a>, building microservices for automated machine learning software.
-    </p>
-    <p>
-      In the past I co-created <a class={linkStyles} href="https://smooth-sail.github.io/">SmoothSail</a>, an open source feature flag management tool.
+  </div>
+  <div class="flex flex-col gap-4">
+    <h2 class="font-semibold">Today</h2>
+    <p class="text-neutral-500 dark:text-neutral-400">
+      I work as a backend focused software engineer at <a class={linkStyles} href="https://www.qlik.com/us/products/qlik-automl">Qlik</a>,
+      where I'm building microservices for automated machine learning software.
     </p>
   </div>
-  <hr class="text-neutral-200 dark:text-neutral-800" />
-  <div>
+  <div class="flex flex-col gap-4">
     <h2 class="font-semibold">Projects</h2>
+    <div class="flex flex-col gap-2">
+      {projects.map((project) => (
+        <a href={project.link} target="_blank" class="flex flex-col hover:bg-neutral-100 dark:hover:bg-neutral-900 py-3 px-3 -mx-3 rounded-lg">
+          <span class="font-medium">{project.title}</span>
+          <span class="text-neutral-500 dark:text-neutral-400">{project.description}</span>
+        </a>
+      ))}
+    </div>
   </div>
-  <hr class="text-neutral-200 dark:text-neutral-800" />
 </main>

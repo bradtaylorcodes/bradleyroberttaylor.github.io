@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Prose from '../../components/Prose.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -15,6 +16,8 @@ const { Content } = await render(post);
 
 <Layout>
   <a href="/">Home</a>
-  <h1>{post.data.title}</h1>
-  <Content />
+  <Prose>
+    <h1>{post.data.title}</h1>
+    <Content />
+  </Prose>
 </Layout>

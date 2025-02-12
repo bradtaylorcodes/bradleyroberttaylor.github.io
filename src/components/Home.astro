@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import Section from './Section.astro';
 const linkStyles = 'underline underline-offset-4 decoration-1 decoration-neutral-300 dark:hover:text-neutral-200 hover:text-neutral-700 dark:decoration-neutral-500 transition-colors';
 
@@ -21,14 +22,13 @@ const projects: Project[] = [
   },
 ];
 
-const blogs = [
-  {
-    title: 'Move from Next.js to Astro',
-    description: 'A blog post about why I went from Next.js to Astro.',
-    link: '/blogs/1',
-  },
-];
-
+const blogs = (await getCollection('blog')).map(blog => {
+  return {
+    title: blog.data.title,
+    description: blog.data.description,
+    link: `/blogs/${blog.id}`,
+  };
+});
 ---
 
 <main class="max-w-2xl flex flex-col gap-12">

@@ -5,8 +5,9 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map(post => ({
-    params: { slug: post.id }, props: { post },
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
   }));
 }
 
@@ -15,9 +16,13 @@ const { Content } = await render(post);
 ---
 
 <Layout>
-  <a href="/">Home</a>
-  <Prose>
-    <h1>{post.data.title}</h1>
-    <Content />
-  </Prose>
+  <main class="max-w-[620px] w-full flex flex-col gap-12">
+    <h1 class="font-semibold text-2xl">
+      {post.data.title}
+      {post.data.pubDate}
+    </h1>
+    <Prose>
+      <Content />
+    </Prose>
+  </main>
 </Layout>

@@ -4,18 +4,22 @@ import '@fontsource-variable/inter';
 import '@fontsource-variable/open-sans';
 
 import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Bradley Taylor</title>
-	</head>
-	<body class="flex flex-col items-center antialiased py-16 px-8 bg-neutral-50 text-neutral-700 dark:bg-neutral-950 dark:text-neutral-200">
+    <meta name="generator" content={Astro.generator} />
+    <title>Bradley Taylor</title>
+  </head>
+  <body
+    class="flex flex-col items-center antialiased py-16 px-8 bg-neutral-50 text-neutral-700 dark:bg-neutral-950 dark:text-neutral-200"
+  >
+    <Header />
     <slot />
     <Footer />
   </body>

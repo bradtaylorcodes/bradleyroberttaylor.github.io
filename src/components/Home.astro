@@ -1,6 +1,14 @@
 ---
+import Section from './Section.astro';
 const linkStyles = 'underline underline-offset-4 decoration-1 decoration-neutral-300 dark:hover:text-neutral-200 hover:text-neutral-700 dark:decoration-neutral-500 transition-colors';
-const projects = [
+
+type Project = {
+  title: string;
+  description: string;
+  link: string;
+};
+
+const projects: Project[] = [
   {
     title: 'SmoothSail',
     description: 'An open source feature flag management.',
@@ -12,6 +20,15 @@ const projects = [
     link: 'https://github.com/BradleyRobertTaylor/for-requests',
   },
 ];
+
+const blogs = [
+  {
+    title: 'Move from Next.js to Astro',
+    description: 'A blog post about why I went from Next.js to Astro.',
+    link: '/blogs/1',
+  },
+];
+
 ---
 
 <main class="max-w-2xl flex flex-col gap-12">
@@ -28,15 +45,6 @@ const projects = [
       where I'm building microservices for automated machine learning software.
     </p>
   </div>
-  <div class="flex flex-col gap-4">
-    <h2 class="font-semibold">Projects</h2>
-    <div class="flex flex-col gap-2">
-      {projects.map((project) => (
-        <a href={project.link} target="_blank" class="flex flex-col hover:bg-neutral-100 dark:hover:bg-neutral-900 py-3 px-3 -mx-3 rounded-lg">
-          <span class="font-medium">{project.title}</span>
-          <span class="text-neutral-500 dark:text-neutral-400">{project.description}</span>
-        </a>
-      ))}
-    </div>
-  </div>
+  <Section title="Projects" items={projects} />
+  <Section title="Writings" items={blogs} />
 </main>

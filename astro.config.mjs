@@ -7,5 +7,13 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'github-light-default',
+        dark: 'github-dark-default'
+      }
+    },
+  },
 });

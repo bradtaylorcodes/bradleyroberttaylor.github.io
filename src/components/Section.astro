@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string;
-  openInNewTab?: boolean;
+  anchorTarget?: astroHTML.JSX.HTMLAttributeAnchorTarget;
   items: {
     title: string;
     description: string;
@@ -10,7 +10,7 @@ interface Props {
   }[];
 }
 
-const { title, items, openInNewTab } = Astro.props;
+const { title, items, anchorTarget } = Astro.props;
 ---
 
 <section class="flex flex-col gap-4">
@@ -20,7 +20,7 @@ const { title, items, openInNewTab } = Astro.props;
       items.map((item) => (
         <a
           href={item.link}
-          target={openInNewTab ? '_blank' : ''}
+          target={anchorTarget}
           class="flex flex-col hover:bg-neutral-100 dark:hover:bg-neutral-900 py-3 px-3 -mx-3 rounded-lg"
         >
           <span class="font-medium">{item.title}</span>

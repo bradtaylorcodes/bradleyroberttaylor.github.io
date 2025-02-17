@@ -28,6 +28,6 @@ const projects = (await getCollection('projects')).map(({ data }) => {
       software.
     </p>
   </div>
-  <Section title="Projects" openInNewTab={true} items={projects} />
+  <Section title="Projects" anchorTarget="_blank" items={projects} />
   <Section title="Writings" items={blogs} />
 </main>

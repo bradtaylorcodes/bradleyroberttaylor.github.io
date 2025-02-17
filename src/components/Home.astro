@@ -2,9 +2,6 @@
 import { getCollection } from 'astro:content';
 import Section from './Section.astro';
 
-const linkStyles =
-  'underline underline-offset-4 decoration-1 decoration-neutral-300 dark:hover:text-neutral-200 hover:text-neutral-700 dark:decoration-neutral-500 transition-colors';
-
 const blogs = (await getCollection('blog')).map(({ data, id }) => {
   const { title, description, author } = data;
   return {
@@ -25,7 +22,7 @@ const projects = (await getCollection('projects')).map(({ data }) => {
     <h2 class="font-semibold">Today</h2>
     <p class="text-neutral-500 dark:text-neutral-400">
       I work as a backend focused software engineer at <a
-        class={linkStyles}
+        class="underline underline-offset-4 decoration-1 decoration-neutral-300 dark:hover:text-neutral-200 hover:text-neutral-700 dark:decoration-neutral-500 transition-colors"
         href="https://www.qlik.com/us/products/qlik-automl">Qlik</a
       >, where I'm building microservices for automated machine learning
       software.

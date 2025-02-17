@@ -5,33 +5,18 @@ import Section from './Section.astro';
 const linkStyles =
   'underline underline-offset-4 decoration-1 decoration-neutral-300 dark:hover:text-neutral-200 hover:text-neutral-700 dark:decoration-neutral-500 transition-colors';
 
-type Project = {
-  title: string;
-  description: string;
-  link: string;
-};
-
-const projects: Project[] = [
-  {
-    title: 'SmoothSail',
-    description: 'An open source feature flag management.',
-    link: 'https://smooth-sail.github.io/',
-  },
-  {
-    title: 'ForRequests',
-    description:
-      'A RequestBin like application for debugging webhooks and HTTP requests.',
-    link: 'https://github.com/BradleyRobertTaylor/for-requests',
-  },
-];
-
-const blogs = (await getCollection('blog')).map((blog) => {
+const blogs = (await getCollection('blog')).map(({ data, id }) => {
+  const { title, description, author } = data;
   return {
-    title: blog.data.title,
-    description: blog.data.description,
-    author: blog.data.author,
-    link: `/blogs/${blog.id}`,
+    title,
+    description,
+    author,
+    link: `/blogs/${id}`,
   };
+});
+
+const projects = (await getCollection('projects')).map(({ data }) => {
+  return data;
 });
 ---
 

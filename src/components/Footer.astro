@@ -1,4 +1,6 @@
 ---
+import { GITHUB_URL, EMAIL, LINKEDIN_URL } from '../data/constants';
+
 const linkStyles =
   'text-medium text-neutral-400 hover:text-black dark:text-neutral-400 dark:hover:text-inherit transition-colors';
 ---
@@ -7,28 +9,16 @@ const linkStyles =
   <nav>
     <ul class="flex gap-6">
       <li>
-        <a
-          class={linkStyles}
-          target="_blank"
-          href="mailto:taylorbradleyr@gmail.com">email</a
-        >
+        <a class={linkStyles} target="_blank" href={`mailto:${EMAIL}`}>email</a>
       </li>
       <li>
         <a class={linkStyles} target="_blank" href="/resume.pdf">resume</a>
       </li>
       <li>
-        <a
-          class={linkStyles}
-          target="_blank"
-          href="https://www.linkedin.com/in/bradleyroberttaylor/">linkedin</a
-        >
+        <a class={linkStyles} target="_blank" href={LINKEDIN_URL}>linkedin</a>
       </li>
       <li>
-        <a
-          class={linkStyles}
-          target="_blank"
-          href="https://github.com/BradleyRobertTaylor">github</a
-        >
+        <a class={linkStyles} target="_blank" href={GITHUB_URL}>github</a>
       </li>
     </ul>
   </nav>

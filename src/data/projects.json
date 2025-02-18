@@ -11,5 +11,12 @@
     "description":
       "A RequestBin like application for debugging webhooks and HTTP requests.",
     "link": "https://github.com/BradleyRobertTaylor/for-requests"
+  },
+  {
+    "id": "Music Lesson Planner",
+    "title": "Music Lesson Planner",
+    "description":
+      "A web appliction for managing and viewing lesson schedules and students.",
+    "link": "https://github.com/BradleyRobertTaylor/music-lesson-planner"
   }
 ]

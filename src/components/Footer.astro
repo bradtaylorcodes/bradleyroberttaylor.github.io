@@ -1,25 +1,40 @@
 ---
 import { GITHUB_URL, EMAIL, LINKEDIN_URL } from '../data/constants';
 
-const linkStyles =
-  'text-medium text-neutral-400 hover:text-black dark:text-neutral-400 dark:hover:text-inherit transition-colors';
+export const FOOTER_LINKS = [
+  {
+    href: `mailto:${EMAIL}`,
+    name: 'email',
+  },
+  {
+    href: '/resume.pdf',
+    name: 'resume',
+  },
+  {
+    href: LINKEDIN_URL,
+    name: 'linkedin',
+  },
+  {
+    href: GITHUB_URL,
+    name: 'github',
+  },
+];
 ---
 
 <footer>
   <nav>
     <ul class="flex gap-6">
-      <li>
-        <a class={linkStyles} target="_blank" href={`mailto:${EMAIL}`}>email</a>
-      </li>
-      <li>
-        <a class={linkStyles} target="_blank" href="/resume.pdf">resume</a>
-      </li>
-      <li>
-        <a class={linkStyles} target="_blank" href={LINKEDIN_URL}>linkedin</a>
-      </li>
-      <li>
-        <a class={linkStyles} target="_blank" href={GITHUB_URL}>github</a>
-      </li>
+      {
+        FOOTER_LINKS.map(({ href, name }) => (
+          <a
+            class="text-medium text-neutral-400 hover:text-black dark:text-neutral-400 dark:hover:text-inherit transition-colors"
+            target="_blank"
+            href={href}
+          >
+            {name}
+          </a>
+        ))
+      }
     </ul>
   </nav>
 </footer>

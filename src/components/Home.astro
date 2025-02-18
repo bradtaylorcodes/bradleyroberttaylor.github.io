@@ -2,15 +2,15 @@
 import { getCollection } from 'astro:content';
 import Section from './Section.astro';
 
-const blogs = (await getCollection('blog')).map(({ data, id }) => {
-  const { title, description, author } = data;
-  return {
-    title,
-    description,
-    author,
-    link: `/blogs/${id}`,
-  };
-});
+// const blogs = (await getCollection('blog')).map(({ data, id }) => {
+//   const { title, description, author } = data;
+//   return {
+//     title,
+//     description,
+//     author,
+//     link: `/blogs/${id}`,
+//   };
+// });
 
 const projects = (await getCollection('projects')).map(({ data }) => {
   return data;
@@ -29,5 +29,5 @@ const projects = (await getCollection('projects')).map(({ data }) => {
     </p>
   </div>
   <Section title="Projects" anchorTarget="_blank" items={projects} />
-  <Section title="Writings" items={blogs} />
+  <!-- <Section title="Writings" items={blogs} /> -->
 </main>

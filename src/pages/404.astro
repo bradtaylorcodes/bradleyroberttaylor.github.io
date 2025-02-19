@@ -1,20 +1,9 @@
 ---
-import '../styles/global.css';
-import '@fontsource-variable/open-sans';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Bradley Taylor</title>
-  </head>
-  <body
-    class="flex justify-center items-center min-h-screen antialiased bg-white text-neutral-700 dark:bg-neutral-950 dark:text-neutral-200 p-8 sm:p-12 md:py-16"
-  >
+<BaseLayout>
+  <div class="flex justify-center items-center min-h-screen">
     <main class="text-center">
       <div class="space-y-2">
         <h1 class="text-4xl">404</h1>
@@ -26,5 +15,5 @@ import '@fontsource-variable/open-sans';
         >
       </div>
     </main>
-  </body>
-</html>
+  </div>
+</BaseLayout>

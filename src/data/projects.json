@@ -2,21 +2,20 @@
   {
     "id": "SmoothSail",
     "title": "SmoothSail",
-    "description": "An open source feature flag management.",
+    "description": "An open source feature flag management tool.",
     "link": "https://smooth-sail.github.io/"
   },
   {
     "id": "ForRequests",
     "title": "ForRequests",
-    "description":
-      "A RequestBin like application for debugging webhooks and HTTP requests.",
+    "description": "A RequestBin like application for debugging webhooks and HTTP requests.",
     "link": "https://github.com/BradleyRobertTaylor/for-requests"
   },
   {
     "id": "Music Lesson Planner",
     "title": "Music Lesson Planner",
-    "description":
-      "A web appliction for managing and viewing lesson schedules and students.",
+    "description": "A web appliction for managing and viewing lesson schedules and students.",
     "link": "https://github.com/BradleyRobertTaylor/music-lesson-planner"
   }
 ]
+

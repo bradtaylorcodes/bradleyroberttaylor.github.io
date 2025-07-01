@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Section from './Section.astro';
-import { QLIK_AUTOML_URL } from '../data/constants';
+import { ATLASSIAN_URL } from '../data/constants';
 
 // const blogs = (await getCollection('blog')).map(({ data, id }) => {
 //   const { title, description, author } = data;
@@ -24,8 +24,8 @@ const projects = (await getCollection('projects')).map(({ data }) => {
     <p class="text-neutral-500 dark:text-neutral-400">
       I work as a software engineer at <a
         class="underline underline-offset-4 decoration-1 decoration-neutral-300 dark:hover:text-neutral-200 hover:text-black dark:decoration-neutral-500 transition-colors"
-        href={QLIK_AUTOML_URL}>Qlik</a
-      >, where I'm building and maintaining microservices for automated machine learning software.
+        href={ATLASSIAN_URL}>Atlassian</a
+      >, where I'm building and maintaining microservices for the Admin Experience team.
     </p>
   </div>
   <Section title="Projects" anchorTarget="_blank" items={projects} />

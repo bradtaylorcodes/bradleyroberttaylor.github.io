@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Section from './Section.astro';
+// import Section from './Section.astro';
 import { ATLASSIAN_URL } from '../data/constants';
 
 // const blogs = (await getCollection('blog')).map(({ data, id }) => {
@@ -25,9 +25,10 @@ const projects = (await getCollection('projects')).map(({ data }) => {
       I work as a software engineer at <a
         class="underline underline-offset-4 decoration-1 decoration-neutral-300 dark:hover:text-neutral-200 hover:text-black dark:decoration-neutral-500 transition-colors"
         href={ATLASSIAN_URL}>Atlassian</a
-      >, where I'm building and maintaining microservices for the Admin Experience team.
+      >, where I'm building and maintaining microservices for the Admin
+      Experience team.
     </p>
   </div>
-  <Section title="Projects" anchorTarget="_blank" items={projects} />
+  <!-- <Section title="Projects" anchorTarget="_blank" items={projects} /> -->
   <!-- <Section title="Writings" items={blogs} /> -->
 </main>

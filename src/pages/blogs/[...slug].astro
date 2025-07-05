@@ -16,12 +16,10 @@ const { Content } = await render(post);
 ---
 
 <Layout>
-  <main class="max-w-[620px]">
-    <h1 class="mb-9 font-semibold text-2xl">
-      {post.data.title}
-    </h1>
-    <Prose>
-      <Content />
-    </Prose>
-  </main>
+  <h1 class="mb-9 font-semibold text-2xl">
+    {post.data.title}
+  </h1>
+  <Prose>
+    <Content />
+  </Prose>
 </Layout>

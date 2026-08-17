@@ -9,30 +9,36 @@ export const FOOTER_LINKS = [
   {
     href: '/resume.pdf',
     name: 'resume',
+    newTab: true,
   },
   {
     href: LINKEDIN_URL,
     name: 'linkedin',
+    newTab: true,
   },
   {
     href: GITHUB_URL,
     name: 'github',
+    newTab: true,
   },
 ];
 ---
 
-<footer>
-  <nav>
-    <ul class="flex gap-6">
+<footer class="w-full">
+  <nav aria-label="Contact and profile links">
+    <ul class="flex flex-wrap gap-x-6 gap-y-3">
       {
-        FOOTER_LINKS.map(({ href, name }) => (
-          <a
-            class="text-medium text-neutral-500 hover:text-black dark:text-neutral-400 dark:hover:text-inherit transition-colors"
-            target="_blank"
-            href={href}
-          >
-            {name}
-          </a>
+        FOOTER_LINKS.map(({ href, name, newTab }) => (
+          <li>
+            <a
+              class="text-medium text-neutral-500 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-inherit"
+              target={newTab ? '_blank' : undefined}
+              rel={newTab ? 'noopener noreferrer' : undefined}
+              href={href}
+            >
+              {name}
+            </a>
+          </li>
         ))
       }
     </ul>

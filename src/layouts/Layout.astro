@@ -2,13 +2,23 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const props = Astro.props;
 ---
 
-<BaseLayout>
-  <div class="p-8 sm:p-12 md:p-24">
-    <div class="max-w-[580px] flex flex-col items-center">
+<BaseLayout {...props}>
+  <div
+    class="flex w-full justify-center px-6 py-12 sm:px-12 sm:py-16 md:px-24 md:py-24"
+  >
+    <div class="flex w-full max-w-[580px] flex-col items-center">
       <Header />
-      <main class="pb-32">
+      <main id="main-content" class="w-full pb-24 sm:pb-32">
         <slot />
       </main>
       <Footer />

@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: 24
           package-manager: npm@latest
+          build-cmd: npm run validate
 
   deploy:
     needs: build

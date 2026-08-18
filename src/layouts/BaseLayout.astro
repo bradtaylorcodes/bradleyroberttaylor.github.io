@@ -1,6 +1,20 @@
 ---
 import '../styles/global.css';
 import '@fontsource-variable/open-sans';
+
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = 'Bradley Taylor | Software Engineer',
+  description = 'Bradley Taylor is a software engineer focused on backend systems and distributed services.',
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -8,13 +22,41 @@ import '@fontsource-variable/open-sans';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#0a0a0a"
+      media="(prefers-color-scheme: dark)"
+    />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Bradley Taylor" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <title>Bradley Taylor</title>
+    <title>{title}</title>
   </head>
   <body
-    class="antialiased bg-white text-neutral-700 dark:bg-neutral-950 dark:text-neutral-200 flex flex-col items-center"
+    class="min-h-screen w-full antialiased bg-white text-neutral-700 dark:bg-neutral-950 dark:text-neutral-200 flex flex-col items-center"
   >
+    <a
+      href="#main-content"
+      class="fixed left-4 top-4 z-50 -translate-y-20 bg-white px-4 py-2 font-medium text-neutral-900 shadow-sm transition-transform focus:translate-y-0 dark:bg-neutral-900 dark:text-white"
+    >
+      Skip to content
+    </a>
     <slot />
   </body>
 </html>

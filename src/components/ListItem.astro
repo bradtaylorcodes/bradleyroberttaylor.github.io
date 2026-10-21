@@ -1,0 +1,39 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  date?: Date;
+  external?: boolean;
+}
+
+const { href, title, description, date, external = false } = Astro.props;
+---
+
+<li>
+  <a
+    class="-mx-3 flex flex-col rounded-md px-3 py-2 transition-colors hover:bg-neutral-100 dark:hover:bg-neutral-900"
+    href={href}
+    target={external ? '_blank' : undefined}
+    rel={external ? 'noopener noreferrer' : undefined}
+  >
+    <span class="flex items-baseline justify-between gap-4">
+      <span class="font-medium text-neutral-900 dark:text-white">{title}</span>
+      {
+        date && (
+          <time
+            class="shrink-0 text-sm text-neutral-500 dark:text-neutral-400"
+            datetime={date.toISOString()}
+          >
+            {date.toLocaleDateString('en-US', {
+              month: 'short',
+              year: 'numeric',
+              timeZone: 'UTC',
+            })}
+          </time>
+        )
+      }
+    </span>
+    <span class="text-neutral-500 dark:text-neutral-400">{description}</span>
+  </a>
+</li>

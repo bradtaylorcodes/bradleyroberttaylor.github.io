@@ -1,10 +1,15 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+
 <header class="mb-20 w-full sm:mb-24">
-  <div class="flex flex-col">
+  <div class="flex items-start justify-between gap-4">
     <h1 class="flex flex-col font-semibold">
       <a class="-mb-1 w-fit" href="/">Bradley Taylor</a>
       <span class="text-neutral-500 dark:text-neutral-400"
         >Software Engineer</span
       >
     </h1>
+    <ThemeToggle />
   </div>
 </header>

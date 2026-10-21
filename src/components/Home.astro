@@ -1,10 +1,61 @@
-<div class="flex flex-col gap-24">
-  <section class="flex flex-col gap-4">
-    <h2 class="font-semibold">What I do</h2>
+---
+import { getPosts } from '../data/posts';
+import { PROJECTS } from '../data/projects';
+import ListItem from './ListItem.astro';
+
+const posts = await getPosts();
+---
+
+<div class="flex flex-col gap-16 sm:gap-24">
+  <section>
     <p class="text-neutral-500 dark:text-neutral-400">
-      I'm a software engineer focused on backend systems and distributed
-      services. Most recently, I worked on Atlassian's Admin Experience team,
-      improving high-traffic APIs, service reliability, and developer workflows.
+      I'm a software engineer who cares about making software easy to use, both
+      for the developers who build on it and the people who rely on it.
+      Previously, I worked on Atlassian's Admin Experience team, improving
+      high-traffic APIs, service reliability, and developer workflows.
     </p>
   </section>
+
+  <section class="flex flex-col gap-4">
+    <h2 class="font-medium text-neutral-900 dark:text-white">Now</h2>
+    <p class="text-neutral-500 dark:text-neutral-400">
+      Right now I'm learning how to build AI into applications: working with
+      model APIs, designing for responses that aren't always the same, and
+      making AI features feel reliable to the people using them.
+    </p>
+  </section>
+
+  <section class="flex flex-col gap-2">
+    <h2 class="font-medium text-neutral-900 dark:text-white">Projects</h2>
+    <ul class="flex flex-col">
+      {
+        PROJECTS.map(({ name, description, href }) => (
+          <ListItem
+            href={href}
+            title={name}
+            description={description}
+            external
+          />
+        ))
+      }
+    </ul>
+  </section>
+
+  {
+    posts.length > 0 && (
+      <section class="flex flex-col gap-2">
+        <h2 class="font-medium text-neutral-900 dark:text-white">Writing</h2>
+        <ul class="flex flex-col">
+          {posts.map(({ id, data }) => (
+            <ListItem
+              href={`/writing/${id}`}
+              title={data.title}
+              description={data.description}
+              date={data.date}
+            />
+          ))}
+        </ul>
+      </section>
+    )
+  }
 </div>

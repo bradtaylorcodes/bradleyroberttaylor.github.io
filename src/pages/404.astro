@@ -1,9 +1,10 @@
 ---
+import { SITE_NAME } from '../data/constants';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Page Not Found | Bradley Taylor"
+  title={`Page Not Found | ${SITE_NAME}`}
   description="The requested page could not be found."
   noindex
 >

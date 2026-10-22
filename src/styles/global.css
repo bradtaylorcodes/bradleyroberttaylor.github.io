@@ -1,8 +1,9 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-body {
-  font-family: 'Open Sans Variable', sans-serif;
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
 }
 
 @layer base {

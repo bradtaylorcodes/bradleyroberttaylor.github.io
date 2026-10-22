@@ -1,10 +1,13 @@
+---
+import { SITE_NAME } from '../data/constants';
+
+// The name is the page heading on the homepage only; other pages have their own
+const isHome = Astro.url.pathname === '/';
+const Heading = isHome ? 'h1' : 'p';
+---
+
 <header class="mb-20 w-full sm:mb-24">
-  <div class="flex flex-col">
-    <h1 class="flex flex-col font-semibold">
-      <a class="-mb-1 w-fit" href="/">Bradley Taylor</a>
-      <span class="text-neutral-500 dark:text-neutral-400"
-        >Software Engineer</span
-      >
-    </h1>
-  </div>
+  <Heading class="font-medium">
+    <a class="w-fit" href="/">{SITE_NAME}</a>
+  </Heading>
 </header>

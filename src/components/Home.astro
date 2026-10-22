@@ -1,10 +1,70 @@
-<div class="flex flex-col gap-24">
-  <section class="flex flex-col gap-4">
-    <h2 class="font-semibold">What I do</h2>
-    <p class="text-neutral-500 dark:text-neutral-400">
-      I'm a software engineer focused on backend systems and distributed
-      services. Most recently, I worked on Atlassian's Admin Experience team,
-      improving high-traffic APIs, service reliability, and developer workflows.
-    </p>
-  </section>
+---
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from '../data/constants';
+import { getPosts, postUrl } from '../data/posts';
+import { PROJECTS } from '../data/projects';
+import ExternalLink from './ExternalLink.astro';
+import ListItem from './ListItem.astro';
+import Section from './Section.astro';
+
+const posts = await getPosts();
+
+const linkClass =
+  'text-neutral-900 underline decoration-neutral-300 underline-offset-2 transition-colors hover:decoration-neutral-900 dark:text-white dark:decoration-neutral-600 dark:hover:decoration-white';
+---
+
+<div class="flex flex-col gap-16 sm:gap-24">
+  <Section>
+    <div class="flex flex-col gap-6">
+      <p class="text-neutral-500 dark:text-neutral-400">
+        I'm a software engineer who cares about making software easy to use,
+        both for the developers who build on it and the people who rely on it.
+        Previously, I worked at Atlassian, improving high-traffic APIs, service
+        reliability and developer workflows.
+      </p>
+      <p class="text-neutral-500 dark:text-neutral-400">
+        The best way to reach me is by <a
+          class={linkClass}
+          href={`mailto:${EMAIL}`}>email</a
+        >. You can also find me on <ExternalLink
+          class={linkClass}
+          href={LINKEDIN_URL}>LinkedIn</ExternalLink
+        > or see what I'm building on <ExternalLink
+          class={linkClass}
+          href={GITHUB_URL}>GitHub</ExternalLink
+        >.
+      </p>
+    </div>
+  </Section>
+
+  <Section title="Projects">
+    <ul class="flex flex-col">
+      {
+        PROJECTS.map(({ name, description, href }) => (
+          <ListItem
+            href={href}
+            title={name}
+            description={description}
+            external
+          />
+        ))
+      }
+    </ul>
+  </Section>
+
+  {
+    posts.length > 0 && (
+      <Section title="Writing">
+        <ul class="flex flex-col">
+          {posts.map(({ id, data }) => (
+            <ListItem
+              href={postUrl(id)}
+              title={data.title}
+              description={data.description}
+              date={data.date}
+            />
+          ))}
+        </ul>
+      </Section>
+    )
+  }
 </div>

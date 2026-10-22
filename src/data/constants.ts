@@ -1,3 +1,4 @@
+export const SITE_NAME = 'Bradley Taylor';
 export const GITHUB_URL = 'https://github.com/bradtaylorcodes';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/bradleyroberttaylor/';
 export const EMAIL = 'taylorbradleyr@gmail.com';

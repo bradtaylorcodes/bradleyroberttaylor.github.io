@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import '@fontsource-variable/inter';
 import '@fontsource-variable/geist-mono';
+import { SITE_NAME } from '../data/constants';
 
 interface Props {
   title?: string;
@@ -10,8 +11,8 @@ interface Props {
 }
 
 const {
-  title = 'Bradley Taylor | Software Engineer',
-  description = "Bradley Taylor is a software engineer who builds software that's easy to use for developers and users.",
+  title = `${SITE_NAME} | Software Engineer`,
+  description = `${SITE_NAME} is a software engineer who builds software that's easy to use for developers and users.`,
   noindex = false,
 } = Astro.props;
 
@@ -39,7 +40,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Bradley Taylor" />
+    <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
@@ -50,23 +51,10 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="Bradley Taylor"
+      title={SITE_NAME}
       href={new URL('rss.xml', Astro.site)}
     />
     <title>{title}</title>
-    <script is:inline>
-      // Runs before paint so the stored or system theme applies without a flash
-      (() => {
-        const media = window.matchMedia('(prefers-color-scheme: dark)');
-        const apply = () => {
-          const stored = localStorage.getItem('theme');
-          const dark = stored ? stored === 'dark' : media.matches;
-          document.documentElement.classList.toggle('dark', dark);
-        };
-        apply();
-        media.addEventListener('change', apply);
-      })();
-    </script>
   </head>
   <body
     class="min-h-screen w-full font-sans antialiased bg-white text-neutral-700 dark:bg-neutral-950 dark:text-neutral-200 flex flex-col items-center"

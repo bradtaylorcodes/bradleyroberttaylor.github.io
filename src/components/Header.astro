@@ -1,12 +1,13 @@
 ---
-import ThemeToggle from './ThemeToggle.astro';
+import { SITE_NAME } from '../data/constants';
+
+// The name is the page heading on the homepage only; other pages have their own
+const isHome = Astro.url.pathname === '/';
+const Heading = isHome ? 'h1' : 'p';
 ---
 
 <header class="mb-20 w-full sm:mb-24">
-  <div class="flex items-center justify-between gap-4">
-    <h1 class="font-semibold">
-      <a class="w-fit" href="/">Bradley Taylor</a>
-    </h1>
-    <ThemeToggle />
-  </div>
+  <Heading class="font-semibold">
+    <a class="w-fit" href="/">{SITE_NAME}</a>
+  </Heading>
 </header>

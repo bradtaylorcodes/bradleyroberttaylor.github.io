@@ -9,9 +9,7 @@ const { title } = Astro.props;
 <section class="flex flex-col gap-3">
   {
     title && (
-      <h2 class="text-sm font-medium text-neutral-900 dark:text-white">
-        {title}
-      </h2>
+      <h2 class="font-medium text-neutral-900 dark:text-white">{title}</h2>
     )
   }
   <slot />

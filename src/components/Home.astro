@@ -14,20 +14,26 @@ const linkClass =
 
 <div class="flex flex-col gap-16 sm:gap-24">
   <Section>
-    <p class="text-neutral-500 dark:text-neutral-400">
-      I'm a software engineer who cares about making software easy to use, both
-      for the developers who build on it and the people who rely on it.
-      Previously, I worked on Atlassian's Admin Experience team, improving
-      high-traffic APIs, service reliability and developer workflows.
-    </p>
-  </Section>
-
-  <Section title="Now">
-    <p class="text-neutral-500 dark:text-neutral-400">
-      Right now I'm learning how to build AI into applications: working with
-      model APIs, designing for responses that aren't always the same, and
-      making AI features feel reliable to the people using them.
-    </p>
+    <div class="flex flex-col gap-6">
+      <p class="text-neutral-500 dark:text-neutral-400">
+        I'm a software engineer who cares about making software easy to use,
+        both for the developers who build on it and the people who rely on it.
+        Previously, I worked at Atlassian, improving high-traffic APIs, service
+        reliability and developer workflows.
+      </p>
+      <p class="text-neutral-500 dark:text-neutral-400">
+        The best way to reach me is by <a
+          class={linkClass}
+          href={`mailto:${EMAIL}`}>email</a
+        >. You can also find me on <ExternalLink
+          class={linkClass}
+          href={LINKEDIN_URL}>LinkedIn</ExternalLink
+        > or see what I'm building on <ExternalLink
+          class={linkClass}
+          href={GITHUB_URL}>GitHub</ExternalLink
+        >.
+      </p>
+    </div>
   </Section>
 
   <Section title="Projects">
@@ -61,19 +67,4 @@ const linkClass =
       </Section>
     )
   }
-
-  <Section title="Connect">
-    <p class="text-neutral-500 dark:text-neutral-400">
-      The best way to reach me is by <a
-        class={linkClass}
-        href={`mailto:${EMAIL}`}>email</a
-      >. You can also find me on <ExternalLink
-        class={linkClass}
-        href={LINKEDIN_URL}>LinkedIn</ExternalLink
-      > or see what I'm building on <ExternalLink
-        class={linkClass}
-        href={GITHUB_URL}>GitHub</ExternalLink
-      >.
-    </p>
-  </Section>
 </div>
